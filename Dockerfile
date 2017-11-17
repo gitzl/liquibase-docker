@@ -1,4 +1,4 @@
-FROM  java
+FROM anapsix/alpine-java
 
 MAINTAINER mc.kj
 
@@ -13,7 +13,5 @@ RUN ln -s /opt/liquibase/liquibase /usr/local/bin/
 COPY lib/mysql-connector-java-5.1.44-bin.jar /opt/jdbc_drivers/
 RUN ln -s /opt/jdbc_drivers/mysql-connector-java-5.1.44-bin.jar /usr/local/bin/
 
-ADD bin /bin
-RUN chmod -R +x /bin
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c", "while true; do echo hello world; sleep 2; done"]
